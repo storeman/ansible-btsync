@@ -1,11 +1,19 @@
 {
-"device_name": "btsync_{{ btsync_user }}",
+"device_name": "{{ btsync_device_name }}",
 "listening_port": {{ btsync_port }},
-"storage_path": "/home/{{ btsync_user }}/.sync",
+"storage_path": "{{ btsync_storage_path }}",
 "check_for_updates": {{ btsync_check_for_updates }},
 "use_upnp": {{btsync_upnp|lower}},
 "download_limit": {{ btsync_download_limit }},
 "upload_limit": {{ btsync_upload_limit }},
+"disk_low_priority": {{ btsync_disk_low_priority|lower }},
+"lan_encrypt_data": {{ btsync_lan_encrypt_data|lower }},
+"rate_limit_local_peers": {{ btsync_rate_limit_local_peers|lower }},
+"folder_rescan_interval": {{ btsync_folder_rescan_interval }},
+"send_buf_size"": {{ btsync_send_buf_size }},
+"recv_buf_size": {{ btsync_recv_buf_size }},
+"sync_trash_ttl": {{ btsync_sync_trash_ttl }},
+"external_port": {{ btsync_external_port }},
 "webui": {
     {% if btsync_webui.get('api_key') %}
     "api_key"  : "{{ btsync_webui.api_key }}",
@@ -18,13 +26,14 @@
     {% if btsync_shared_folders is defined %}
     {% for folder in btsync_shared_folders %}
     {
-      "secret" : "{{ folder.key }}",
-      "dir" : "{{ folder.path }}",
+      "secret" : "{{ folder.secret }}",
+      "dir" : "{{ folder.dir }}",
 
       "use_relay_server" : {{folder.use_relay_server|default(btsync_use_relay_server)|lower}},
       "use_tracker" : {{folder.use_tracker|default(btsync_use_tracker)|lower}},
       "use_dht" : {{folder.use_dht|default(btsync_use_dht)|lower}},
       "search_lan" : {{folder.search_lan|default(btsync_search_lan)|lower}},
+      "known_hosts" : {{folder.known_hosts|default(btsync_known_hosts)|lower}},
       "use_sync_trash" : {{folder.use_sync_trash|default(btsync_use_sync_trash)|lower}}
     }{% if not loop.last %},{% endif %}
     {% endfor %}
