@@ -2,15 +2,15 @@
 "device_name": "btsync_{{ btsync_user }}",
 "listening_port": {{ btsync_port }},
 "storage_path": "/home/{{ btsync_user }}/.sync",
-"check_for_updates": false,
+"check_for_updates": {{ btsync_check_for_updates }},
 "use_upnp": {{btsync_upnp|lower}},
-"download_limit": 0,
-"upload_limit": 0,
+"download_limit": {{ btsync_download_limit }},
+"upload_limit": {{ btsync_upload_limit }},
 "webui": {
     {% if btsync_webui.get('api_key') %}
     "api_key"  : "{{ btsync_webui.api_key }}",
     {% endif %}
-    "listen": "{{ btsync_webui.listen }}:8888",
+    "listen": "{{ btsync_webui.address }}:{{ btsync_webui.port }}",
     "login" : "{{ btsync_webui.user }}",
     "password" : "{{ btsync_webui.password }}"
 },

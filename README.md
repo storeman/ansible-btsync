@@ -15,7 +15,15 @@ Install and manage a btsync server on Linux.
 
 **btsync_user**: Required. The user who run the btsync daemon.
 
-**btsync_webui.listen**: Optional. The ip to listen. Default 0.0.0.0.
+**btsync_download_limit**: Download limit, defaults to 0 (unlimted)
+
+**btsync_upload_limit**: Upload limit, defaults to 0 (unlimted)
+
+**btsync_check_for_updates**: "true" or "false", defaults to "false"
+
+**btsync_webui.address**: Optional. The ip to listen. Default 0.0.0.0.
+
+**btsync_webui.port**: Optional. The port to listen. Default 8888
 
 **btsync_webui.user**: Required. The username used to protect the webui
 

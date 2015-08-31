@@ -5,10 +5,14 @@ btsync_url:
   armv6l: http://download-new.utorrent.com/endpoint/btsync/os/{{ ansible_system|lower }}-arm/track/stable
 btsync_upnp: true
 btsync_webui:
-  - listen: 0.0.0.0
+  - address: 0.0.0.0
+  - port: 0.0.0.0
 btsync_port: 0
 btsync_use_relay_server: true
 btsync_use_tracker: true
 btsync_use_dht: false
 btsync_search_lan: true
 btsync_use_sync_trash: true
+btsync_download_limit: 0
+btsync_upload_limit: 0
+btsync_check_for_updates: "false"
