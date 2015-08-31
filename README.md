@@ -37,7 +37,7 @@ Also check the [btsync docs](http://sync-help.bittorrent.com/customer/portal/art
 
 **sync_trash_ttl**: Optional, number of days before removed from trash (10 days default)
 
-**external_port**: External port to use, defaults to 0 (dynamic)
+**external_port**: External port to use, defaults to 0 (not set). Is used for reporting the port which peer can connect through (when natting i.e.)
 
 **btsync_storage_path**: Default storage path, defaults to /var/lib/btsync/ (which is default on ubuntu)
 
